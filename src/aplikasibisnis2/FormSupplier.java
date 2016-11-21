@@ -109,6 +109,11 @@ public class FormSupplier extends javax.swing.JDialog {
         });
 
         BtnSIMPAN.setText("Simpan");
+        BtnSIMPAN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSIMPANActionPerformed(evt);
+            }
+        });
 
         BtnBATAL.setText("Batal");
         BtnBATAL.addActionListener(new java.awt.event.ActionListener() {
@@ -209,12 +214,19 @@ public class FormSupplier extends javax.swing.JDialog {
     }//GEN-LAST:event_textteleponActionPerformed
 
     private void BtnBATALActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBATALActionPerformed
-        // TODO add your handling code here:
+        resetForm();
+        tampilan();        // TODO add your handling code here:
     }//GEN-LAST:event_BtnBATALActionPerformed
 
     private void textkodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textkodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textkodeActionPerformed
+
+    private void BtnSIMPANActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSIMPANActionPerformed
+        isiData();
+        tampilan();
+        resetForm();        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnSIMPANActionPerformed
 
     /**
      * @param args the command line arguments
