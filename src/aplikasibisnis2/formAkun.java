@@ -19,8 +19,12 @@ public class formAkun extends javax.swing.JDialog {
      * Creates new form formAkun
      */
     public formAkun(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+        super(parent, "Form Akun");
         initComponents();
+        setLocationRelativeTo(this);
+        CBStatus.removeAllItems();
+        CBStatus.addItem("Admin");
+        CBStatus.addItem("Staff");
     }
 
     /**
@@ -42,9 +46,9 @@ public class formAkun extends javax.swing.JDialog {
         Text4 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TblAKun = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
+        BtnSImpan = new javax.swing.JButton();
+        BtnBatl = new javax.swing.JButton();
+        CBStatus = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -79,14 +83,19 @@ public class formAkun extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(TblAKun);
 
-        jButton1.setText("Simpan");
-
-        jButton2.setText("Batal");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        BtnSImpan.setText("Simpan");
+        BtnSImpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                BtnSImpanActionPerformed(evt);
+            }
+        });
+
+        BtnBatl.setText("Batal");
+
+        CBStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBStatusActionPerformed(evt);
             }
         });
 
@@ -111,11 +120,11 @@ public class formAkun extends javax.swing.JDialog {
                                     .addComponent(Text2, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                                     .addComponent(Text3, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                                     .addComponent(Text4, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(CBStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(BtnSImpan)
                                 .addGap(29, 29, 29)
-                                .addComponent(jButton2)))
+                                .addComponent(BtnBatl)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 25, Short.MAX_VALUE))
@@ -127,7 +136,7 @@ public class formAkun extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CBStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
@@ -142,8 +151,8 @@ public class formAkun extends javax.swing.JDialog {
                     .addComponent(Text4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(BtnSImpan)
+                    .addComponent(BtnBatl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(76, 76, 76))
@@ -156,9 +165,15 @@ public class formAkun extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_Text2ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void CBStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBStatusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_CBStatusActionPerformed
+
+    private void BtnSImpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSImpanActionPerformed
+        isiData();
+        resetForm();
+        tampilan();        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnSImpanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,13 +218,13 @@ public class formAkun extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnBatl;
+    private javax.swing.JButton BtnSImpan;
+    private javax.swing.JComboBox CBStatus;
     private javax.swing.JTable TblAKun;
     private javax.swing.JTextField Text2;
     private javax.swing.JTextField Text3;
     private javax.swing.JTextField Text4;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -217,4 +232,41 @@ public class formAkun extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void tampilan() {
+       {
+        String[] kolom = {"Username","Password","Nama","Status"};
+        Object[][] o = new Object[AkunList.size()][4];
+        int i = 0;
+        for(ClassAkun n : AkunList)
+        {
+            String[] arr = {n.getUser(),n.getPass(),n.getNama(),n.getStatus()};
+            o[i] = arr;
+            i++;
+        }
+        tModel = new DefaultTableModel(o,kolom);
+        TblAKun.setModel(tModel);
+        
+    } //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void resetForm() {
+        {
+        Text3.setText("");
+        Text4.setText("");
+        Text2.setText("");
+        CBStatus.setSelectedIndex(-1);
+    } //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void isiData() {
+        {
+        ClassAkun akun = new ClassAkun();
+        akun.user(Text3.getText());
+        akun.setPass(Text4.getText());
+        akun.setNama(Text2.getText());
+        akun.setStatus(CBStatus.getSelectedItem().toString());
+        AkunList.add(akun);
+    }//To change body of generated methods, choose Tools | Templates.
+    }
 }
