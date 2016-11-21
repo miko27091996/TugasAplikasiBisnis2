@@ -5,20 +5,44 @@
  */
 package aplikasibisnis2;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sigit
  */
 public class FormSupplier extends javax.swing.JDialog {
 
-    /**
+    private ArrayList<ClassSupplier> listSupplier = new ArrayList<ClassSupplier>();
+    private DefaultTableModel tModel;/**
      * Creates new form FormSupplier
      */
     public FormSupplier(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(this);
+        tampilan();
     }
-
+    private void isiData()
+    {
+        ClassSupplier sup = new ClassSupplier();
+        sup.setKode(textkode.getText());
+        sup.setNama(textnama.getText());
+        sup.setAlamat(textalamat.getText());
+        sup.setTelepon(texttelepon.getText());
+        sup.setNamaKontak(textnomer.getText());
+        listSupplier.add(sup);
+    }
+    
+    private void resetForm()
+    {
+        textkode.setText("");
+        textnama.setText("");
+        textalamat.setText("");
+        texttelepon.setText("");
+        textnomer.setText("");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,6 +83,12 @@ public class FormSupplier extends javax.swing.JDialog {
         jLabel5.setText("Telepon :");
 
         jLabel6.setText("Nomer Kontak :");
+
+        textkode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textkodeActionPerformed(evt);
+            }
+        });
 
         textnama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,6 +212,10 @@ public class FormSupplier extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnBATALActionPerformed
 
+    private void textkodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textkodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textkodeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -241,4 +275,18 @@ public class FormSupplier extends javax.swing.JDialog {
     private javax.swing.JTextField textnomer;
     private javax.swing.JTextField texttelepon;
     // End of variables declaration//GEN-END:variables
+
+    private void tampilan() {
+    String[] kolom = {"Kode","Nama","Alamat","Telepon","Nama Kontak"};
+        Object[][] o = new Object[listSupplier.size()][5];
+        int i = 0;
+        for(ClassSupplier n : listSupplier)
+        {
+            String[] arr = {n.getKode(),n.getNama(),n.getAlamat(),n.getTelepon(),n.getNamaKontak()};
+            o[i] = arr;
+            i++;
+        }
+        tModel = new DefaultTableModel(o,kolom);
+        TabelSup.setModel(tModel);
+    }
 }
