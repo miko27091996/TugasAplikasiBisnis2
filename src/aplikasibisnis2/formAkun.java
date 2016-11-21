@@ -91,6 +91,11 @@ public class formAkun extends javax.swing.JDialog {
         });
 
         BtnBatl.setText("Batal");
+        BtnBatl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBatlActionPerformed(evt);
+            }
+        });
 
         CBStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         CBStatus.addActionListener(new java.awt.event.ActionListener() {
@@ -174,6 +179,11 @@ public class formAkun extends javax.swing.JDialog {
         resetForm();
         tampilan();        // TODO add your handling code here:
     }//GEN-LAST:event_BtnSImpanActionPerformed
+
+    private void BtnBatlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBatlActionPerformed
+        resetForm();
+        tampilan();        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnBatlActionPerformed
 
     /**
      * @param args the command line arguments
