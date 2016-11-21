@@ -5,13 +5,17 @@
  */
 package aplikasibisnis2;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sigit
  */
 public class formAkun extends javax.swing.JDialog {
 
-    /**
+    private ArrayList<ClassAkun> AkunList = new ArrayList<ClassAkun>();
+    private DefaultTableModel tModel;/**
      * Creates new form formAkun
      */
     public formAkun(java.awt.Frame parent, boolean modal) {
@@ -37,7 +41,7 @@ public class formAkun extends javax.swing.JDialog {
         Text3 = new javax.swing.JTextField();
         Text4 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TblAKun = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
@@ -62,7 +66,7 @@ public class formAkun extends javax.swing.JDialog {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TblAKun.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -73,13 +77,18 @@ public class formAkun extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TblAKun);
 
         jButton1.setText("Simpan");
 
         jButton2.setText("Batal");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,6 +156,10 @@ public class formAkun extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_Text2ActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -190,6 +203,7 @@ public class formAkun extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TblAKun;
     private javax.swing.JTextField Text2;
     private javax.swing.JTextField Text3;
     private javax.swing.JTextField Text4;
@@ -202,6 +216,5 @@ public class formAkun extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
